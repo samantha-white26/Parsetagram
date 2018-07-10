@@ -2,7 +2,9 @@ package com.example.samanthawhite.parsetagram;
 
 import android.app.Application;
 
+import com.example.samanthawhite.parsetagram.model.Post;
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class ParseApp extends Application {
 
@@ -10,6 +12,10 @@ public class ParseApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //need to register our subclass
+        //custom parse model
+        ParseObject.registerSubclass(Post.class);
 
         //set up parse...clientKey that is masterkey
         final Parse.Configuration configuration = new Parse.Configuration.Builder(this)
