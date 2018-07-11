@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -61,6 +62,9 @@ public class HomeActivity extends AppCompatActivity {
     createButton = findViewById(R.id.btnCreate);
     refreshButton = findViewById(R.id.btnRefresh);
     pictureButton = findViewById(R.id.takepic_btn);
+    Toolbar toolbar = findViewById(R.id.toolbar);
+
+    setSupportActionBar(toolbar);
     // mImageView = findViewById(R.id.picture);
     //        View view = findViewById(R.id.home_activity);
 

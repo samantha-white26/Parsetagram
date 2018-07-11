@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Parsetagram</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_main">Main</string>
+    <string name="title_post">Post</string>
+    <string name="title_logout">logout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
