@@ -6,6 +6,9 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.Date;
+
+
 @ParseClassName("Post")
 public class Post extends ParseObject {
     //should match the columns in our Heroku server
@@ -28,6 +31,10 @@ public class Post extends ParseObject {
         //used when you want to create a post
         //create a post model and set description using this method
         put(KEY_DESCRIPTION, description);
+    }
+
+    public Date getCreatedAt() {
+        return super.getCreatedAt();
     }
 
 

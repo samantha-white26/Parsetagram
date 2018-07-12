@@ -1,6 +1,7 @@
 package com.example.samanthawhite.parsetagram;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.samanthawhite.parsetagram.model.Post;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -60,13 +63,29 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
       // perform findbiewby id lookups
       imageView = (ImageView) itemView.findViewById(R.id.imageView);
       description = (TextView) itemView.findViewById(R.id.tvDescription);
+      itemView.setOnClickListener(this);
     }
 
-      @Override
-      public void onClick(View view) {
-          HomeActivity home = (HomeActivity) context;
+    @Override
+    public void onClick(View view) {
 
+      MainActivity main = (MainActivity) context;
+
+      int position = getAdapterPosition();
+      Post post = mPosts.get(position);
+
+      if (position != RecyclerView.NO_POSITION) {
+        // create an intent for an activity
+        Intent intent = new Intent(main, DetailsActivity.class);
+        // set up so the information we want to pass will be passed to the new activtiy
+        intent.putExtra("postDetails", Parcels.wrap(post));
+
+        // pass the bundle to some activity
+        // put extra
+        // home.laskdfoi(mPosts.get(this.getPosition()));
+        main.startActivity(intent);
       }
+    }
   }
 
     @Override

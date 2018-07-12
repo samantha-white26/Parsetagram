@@ -85,4 +85,12 @@ public class MainActivity extends AppCompatActivity implements LogoutFragment.On
             Log.i("homeactivity", "not logged out");
         }
     }
+
+//    public void postDetails(Post post){
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+//
+//        fragmentTransaction.replace(R.id.your_placeholder, createPost).commit();
+//    }
+
+
 }
