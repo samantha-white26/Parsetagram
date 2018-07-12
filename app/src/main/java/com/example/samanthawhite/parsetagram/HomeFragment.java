@@ -2,6 +2,7 @@ package com.example.samanthawhite.parsetagram;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,6 +21,8 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     ArrayList<Post> posts;
     PostsAdapter postsAdapter;
+    private SwipeRefreshLayout swipeContainer;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,14 +47,25 @@ public class HomeFragment extends Fragment {
         //set the adapter
         rvPosts.setAdapter(postsAdapter);
 
-        //TODO get posts call some function
+        //Get the posts
         loadTopPosts();
 
 
-        //set layout manager
-        //set adapter
-
-
+        //find the swipe container...allows the creation of a refresh action
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Refresh the timeline by making another twitter client call
+                loadPostAsync();
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_dark,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
 
 
 
@@ -97,4 +111,15 @@ public class HomeFragment extends Fragment {
                 });
     }
 
+
+    public void loadPostAsync(){
+        // CLEAR OUT old twweets before appending in the new ones
+        posts.clear();
+        //get the tweets obtained in the populatetimeline
+        loadTopPosts();
+        // ...the data has come back, add new items to your adapter...
+        postsAdapter.addAll(posts);
+        // Now we call setRefreshing(false) to signal refresh has finished
+        swipeContainer.setRefreshing(false);
+    }
 }

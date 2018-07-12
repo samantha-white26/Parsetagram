@@ -12,6 +12,7 @@ public class Post extends ParseObject {
     private static final String KEY_DESCRIPTION = "description";
     private static final String KEY_IMAGE = "image";
     private static final String KEY_USER = "user";
+    private static final String KEY_CREATED_AT = "createdAt";
 
     //encapsulate accessors and mutators (getter and setter)
 
@@ -29,9 +30,12 @@ public class Post extends ParseObject {
         put(KEY_DESCRIPTION, description);
     }
 
+
+
     public ParseFile getImage(){
         return getParseFile(KEY_IMAGE);
     }
+
 
     public void setImage(ParseFile image){
         put(KEY_IMAGE, image);
@@ -54,6 +58,7 @@ public class Post extends ParseObject {
 
         //get the first 20 posts
         public Query getTop(){
+            orderByDescending(KEY_CREATED_AT);
             setLimit(20);
             return this;
         }

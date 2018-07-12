@@ -49,7 +49,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     }
 
-  public class ViewHolder extends RecyclerView.ViewHolder {
+  public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     // the views I want to display
     public ImageView imageView;
     public TextView description;
@@ -57,18 +57,33 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     // constructor takes in inflated layout
     public ViewHolder(View itemView) {
       super(itemView);
-
       // perform findbiewby id lookups
-
       imageView = (ImageView) itemView.findViewById(R.id.imageView);
       description = (TextView) itemView.findViewById(R.id.tvDescription);
     }
+
+      @Override
+      public void onClick(View view) {
+          HomeActivity home = (HomeActivity) context;
+
+      }
   }
 
     @Override
     public int getItemCount() {
         return mPosts.size();
     }
+
+    public void clear() {
+        mPosts.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<Post> list) {
+        mPosts.addAll(list);
+        notifyDataSetChanged();
+    }
+
 
 
 
