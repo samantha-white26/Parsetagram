@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         // define your fragments here
         final Fragment createPost = new CreatePostFragment();
-        //final Fragment home = new HomeFragment();
+        final Fragment home = new HomeFragment();
         //final Fragment fragment3 = new ThirdFragment();
 
 
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case R.id.navigation_main:
                                 //replace first: placeholder fragment with new fragment
-                               //fragmentTransaction.replace(R.id.your_placeholder, home).commit();
-
+                               fragmentTransaction.replace(R.id.your_placeholder, home).commit();
+                                Toast.makeText(MainActivity.this,"made it to new fragment",Toast.LENGTH_LONG).show();
                                 return true;
 //                            case R.id.navigation_logout:
 //                                fragmentTransaction.replace(R.id.your_placeholder, fragment2).commit();
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+        bottomNavigationView.setSelectedItemId(R.id.navigation_main);
     }
 
 
