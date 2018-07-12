@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         // define your fragments here
         final Fragment createPost = new CreatePostFragment();
         final Fragment home = new HomeFragment();
-        //final Fragment fragment3 = new ThirdFragment();
+        //final Fragment logout = new ();
 
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
