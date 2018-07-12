@@ -32,10 +32,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static android.app.Activity.RESULT_OK;
-import static com.parse.ManifestInfo.getPackageManager;
 
 public class CreatePostFragment extends Fragment {
 
@@ -67,7 +67,7 @@ public class CreatePostFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //put basically all the code here
 
-        //ButterKnife.bind(this, view);
+        ButterKnife.bind(this, view);
 
 
     }
@@ -90,11 +90,11 @@ public class CreatePostFragment extends Fragment {
 
     @OnClick(R.id.takepic_btn)
     protected void takePicture(){
-        onLaunchCamera(view);
+        onLaunchCamera();
     }
 
 
-    public void onLaunchCamera(View view) {
+    public void onLaunchCamera() {
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Create a File reference to access to future access
@@ -104,13 +104,13 @@ public class CreatePostFragment extends Fragment {
         // required for API >= 24
         // See
         // https://guides.codepath.com/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
-        Uri fileProvider = FileProvider.getUriForFile(this.getContext(), "com.codepath.fileprovider", photoFile);
+        Uri fileProvider = FileProvider.getUriForFile(getContext(), "com.codepath.fileprovider", photoFile);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
 
         // If you call startActivityForResult() using an intent that no app can handle, your app will
         // crash.
         // So as long as the result is not null, it's safe to use the intent.
-        if (intent.resolveActivity(getPackageManager()) != null) {
+        if (intent.resolveActivity(getContext().getPackageManager()) != null) {
             // Start the image capture intent to take photo
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
@@ -121,7 +121,7 @@ public class CreatePostFragment extends Fragment {
         // Get safe storage directory for photos
         // Use `getExternalFilesDir` on Context to access package-specific directories.
         // This way, we don't need to request external read/write runtime permissions.
-        File mediaStorageDir = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
+        File mediaStorageDir = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
 
         // Create the storage directory if it does not exist
         if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
@@ -167,7 +167,7 @@ public class CreatePostFragment extends Fragment {
                 // Load the taken image into a preview
                 ivPreview.setImageBitmap(takenImage);
             } else { // Result was a failure
-                Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -184,7 +184,7 @@ public class CreatePostFragment extends Fragment {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            Log.d("HomeActivity", "create post success");
+                            Log.d("CreatePost", "create post success");
 
                         } else {
                             e.printStackTrace();

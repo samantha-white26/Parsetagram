@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         // define your fragments here
         final Fragment createPost = new CreatePostFragment();
-        //final Fragment fragment2 = new SecondFragment();
+        //final Fragment home = new HomeFragment();
         //final Fragment fragment3 = new ThirdFragment();
 
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getItemId()) {
                             case R.id.navigation_main:
                                 //replace first: placeholder fragment with new fragment
-//                                fragmentTransaction.replace(R.id.your_placeholder, fragment1).commit();
+                               //fragmentTransaction.replace(R.id.your_placeholder, home).commit();
 
                                 return true;
 //                            case R.id.navigation_logout:
