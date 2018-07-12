@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements LogoutFragment.On
         Toolbar toolbar = findViewById(R.id.nav_toolbar);
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
 

@@ -39,8 +39,7 @@
             android:name=".HomeActivity"
             android:label="HomeActivity"/>
         <activity android:name=".SignupActivity" />
-        <activity
-            android:name=".MainActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".DetailsActivity"></activity>
     </application>
 
