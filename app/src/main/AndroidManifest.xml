@@ -37,11 +37,10 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home" />
+            android:label="HomeActivity"/>
         <activity android:name=".SignupActivity" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main" />
+            android:name=".MainActivity" />
         <activity android:name=".DetailsActivity"></activity>
     </application>
 
