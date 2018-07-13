@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -48,14 +47,12 @@ public class MainActivity extends AppCompatActivity implements LogoutFragment.On
                             case R.id.navigation_main:
                                 //replace first: placeholder fragment with new fragment
                                fragmentTransaction.replace(R.id.your_placeholder, home).commit();
-                                Toast.makeText(MainActivity.this,"made it to new fragment",Toast.LENGTH_LONG).show();
                                 return true;
                             case R.id.navigation_logout:
                                fragmentTransaction.replace(R.id.your_placeholder, logout).commit();
                                return true;
                             case R.id.navigation_post:
                                 fragmentTransaction.replace(R.id.your_placeholder, createPost).commit();
-                                Toast.makeText(MainActivity.this,"made it to new fragment",Toast.LENGTH_LONG).show();
                                 return true;
                             default:
                                 return false;

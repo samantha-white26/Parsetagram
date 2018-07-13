@@ -1,5 +1,6 @@
 package com.example.samanthawhite.parsetagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -58,6 +59,7 @@ public class SignupActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(SignupActivity.this, "new user created", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
                     //TODO start the main activity
                     // Hooray! Let them use the app now.
                 } else {
