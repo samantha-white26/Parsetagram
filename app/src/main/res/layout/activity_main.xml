@@ -30,6 +30,13 @@
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/media_option_button"
+                android:tint="@android:color/black"
+                />
+
 
         </android.support.v7.widget.Toolbar>
 

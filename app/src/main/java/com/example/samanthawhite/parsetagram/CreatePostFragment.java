@@ -1,5 +1,6 @@
 package com.example.samanthawhite.parsetagram;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -89,6 +90,8 @@ public class CreatePostFragment extends Fragment {
         ParseFile parseFile = new ParseFile(photoFile);
 
         createPost(description, parseFile, user);
+
+
     }
 
 
@@ -188,6 +191,7 @@ public class CreatePostFragment extends Fragment {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
+                            listener.onMainCreateSelected();
                             Log.d("CreatePost", "create post success");
 
                         } else {
@@ -195,6 +199,17 @@ public class CreatePostFragment extends Fragment {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof onItemSelectedListener) {
+            listener = (onItemSelectedListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnItemSelectedListener");
+        }
     }
 
 

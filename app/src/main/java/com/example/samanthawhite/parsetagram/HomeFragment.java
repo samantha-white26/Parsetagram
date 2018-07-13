@@ -76,7 +76,11 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPostAsync();
+    }
 
     private void loadTopPosts() {
         final Post.Query postsQuery = new Post.Query();

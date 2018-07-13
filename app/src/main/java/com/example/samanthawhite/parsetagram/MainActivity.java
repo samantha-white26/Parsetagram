@@ -15,9 +15,14 @@ import android.view.MenuItem;
 
 import com.parse.ParseUser;
 
-public class MainActivity extends AppCompatActivity implements LogoutFragment.OnLogoutSelectedListener {
+public class MainActivity extends AppCompatActivity implements onItemSelectedListener {
 
+    final FragmentManager fragmentManager = getSupportFragmentManager();
 
+    // define your fragments here
+    final Fragment createPost = new CreatePostFragment();
+    final Fragment home = new HomeFragment();
+    final Fragment logout = new LogoutFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +37,12 @@ public class MainActivity extends AppCompatActivity implements LogoutFragment.On
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-        final FragmentManager fragmentManager = getSupportFragmentManager();
-
-        // define your fragments here
-        final Fragment createPost = new CreatePostFragment();
-        final Fragment home = new HomeFragment();
-        final Fragment logout = new LogoutFragment();
+//        final FragmentManager fragmentManager = getSupportFragmentManager();
+//
+//        // define your fragments here
+//        final Fragment createPost = new CreatePostFragment();
+//        final Fragment home = new HomeFragment();
+//        final Fragment logout = new LogoutFragment();
 
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
@@ -77,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements LogoutFragment.On
 
 
     @Override
-    public void onMainItemSelected() {
+    public void onMainLogoutSelected() {
         ParseUser.logOut();
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser == null) {
@@ -90,15 +95,16 @@ public class MainActivity extends AppCompatActivity implements LogoutFragment.On
     }
 
 
-    public void onMainCreateItemSelected() {
+    public void onMainCreateSelected() {
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.your_placeholder, home).commit();
 
 
     }
 
 //    public void postDetails(Post post){
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
-//
-//        fragmentTransaction.replace(R.id.your_placeholder, createPost).commit();
+
 //    }
 
 

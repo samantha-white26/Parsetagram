@@ -48,7 +48,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
          Post post = mPosts.get(position);
 
         holder.description.setText(post.getDescription());
+        holder.username.setText(post.getUser().getUsername());
         Glide.with(context).load(post.getImage().getUrl()).into(holder.imageView);
+
 
     }
 
@@ -56,6 +58,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     // the views I want to display
     public ImageView imageView;
     public TextView description;
+    public TextView username;
+
+
 
     // constructor takes in inflated layout
     public ViewHolder(View itemView) {
@@ -63,6 +68,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
       // perform findbiewby id lookups
       imageView = (ImageView) itemView.findViewById(R.id.imageView);
       description = (TextView) itemView.findViewById(R.id.tvDescription);
+      username = (TextView) itemView.findViewById(R.id.username);
+
+
+
       itemView.setOnClickListener(this);
     }
 
@@ -80,9 +89,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         // set up so the information we want to pass will be passed to the new activtiy
         intent.putExtra("postDetails", Parcels.wrap(post));
 
-        // pass the bundle to some activity
-        // put extra
-        // home.laskdfoi(mPosts.get(this.getPosition()));
         main.startActivity(intent);
       }
     }

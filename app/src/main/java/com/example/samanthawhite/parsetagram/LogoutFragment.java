@@ -19,12 +19,14 @@ public class LogoutFragment extends Fragment {
 
     @BindView(R.id.logout_btn) Button logoutButton;
 
-    private OnLogoutSelectedListener listener;
+//    private OnLogoutSelectedListener listener;
+//
+//    public interface OnLogoutSelectedListener {
+//        // This can be any number of events to be sent to the activity
+//        public void onMainItemSelected();
+//    }
 
-    public interface OnLogoutSelectedListener {
-        // This can be any number of events to be sent to the activity
-        public void onMainItemSelected();
-    }
+    private onItemSelectedListener listener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,15 +50,15 @@ public class LogoutFragment extends Fragment {
 
     @OnClick(R.id.logout_btn)
     protected void logoutButton(){
-        listener.onMainItemSelected();
+        listener.onMainLogoutSelected();
 
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnLogoutSelectedListener) {
-            listener = (OnLogoutSelectedListener) context;
+        if (context instanceof onItemSelectedListener) {
+            listener = (onItemSelectedListener) context;
         } else {
             throw new ClassCastException(context.toString()
                     + " must implement LogoutFragment.OnLogoutSelectedListener");
