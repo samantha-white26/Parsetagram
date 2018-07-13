@@ -18,7 +18,7 @@
         android:layout_height="25dp"
         app:srcCompat="@drawable/ufi_heart"
         android:layout_below="@id/imageView"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/heart" />
 
     <ImageView
@@ -48,13 +48,15 @@
         app:srcCompat="@drawable/ufi_save" />
 
 
-
-
-
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/heart"
-        android:text="TextView" />
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
 </RelativeLayout>
