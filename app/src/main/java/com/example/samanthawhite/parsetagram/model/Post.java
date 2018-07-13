@@ -1,5 +1,7 @@
 package com.example.samanthawhite.parsetagram.model;
 
+import android.text.format.DateUtils;
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -35,6 +37,11 @@ public class Post extends ParseObject {
 
     public Date getCreatedAt() {
         return super.getCreatedAt();
+    }
+
+    public String getRelativeTimeAgo() {
+        long dateMillis = getCreatedAt().getTime();
+        return DateUtils.getRelativeTimeSpanString(dateMillis, System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
     }
 
 

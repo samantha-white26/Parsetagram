@@ -149,8 +149,7 @@ public class CreatePostFragment extends Fragment {
                 Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
 
                 takenImage = BitmapScaler.scaleToFitWidth(takenImage, 100);
-                // TODO RESIZE BITMAP, see section below but first understand how URI is used
-                // Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+
 
                 // Configure byte output stream
                 try {

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.bumptech.glide.Glide;
 import com.example.samanthawhite.parsetagram.model.Post;
 
@@ -47,11 +48,13 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         //which tweet object to show based on position
          Post post = mPosts.get(position);
 
+
+
         holder.description.setText(post.getDescription());
         holder.username.setText(post.getUser().getUsername());
         Glide.with(context).load(post.getImage().getUrl()).into(holder.imageView);
         holder.postUsername.setText(post.getUser().getUsername());
-        holder.timeStamp.setText(post.getCreatedAt().toString());
+        holder.timeStamp.setText(post.getRelativeTimeAgo());
 
 
     }

@@ -29,7 +29,7 @@ public class DetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         post = Parcels.unwrap(getIntent().getParcelableExtra("postDetails"));
         tvDescription.setText(post.getDescription());
-        tvTimeStamp.setText(post.getCreatedAt().toString());
+        tvTimeStamp.setText(post.getRelativeTimeAgo());
 
         Glide.with(DetailsActivity.this).load(post.getImage().getUrl()).into(ivPicture);
 
