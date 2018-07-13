@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBar">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/nav_toolbar"
@@ -39,7 +40,8 @@
         android:id="@+id/your_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/navigation">
+        android:layout_above="@id/navigation"
+        android:layout_below="@id/appBar">
 
     </FrameLayout>
 
