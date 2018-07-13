@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Toolbar Title"
-                android:src="@drawable/nux_dayone_landing_logo"
+                android:src="@drawable/nav_logo_whiteout"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
 
@@ -52,6 +52,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation"
+        app:itemIconTint="@android:color/black"/>
 
 </RelativeLayout>
