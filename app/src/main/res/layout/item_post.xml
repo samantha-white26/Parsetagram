@@ -25,7 +25,7 @@
         android:layout_below="@+id/username"
         android:scaleType="fitXY"
         app:srcCompat="@android:color/black"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"/>
 
     <ImageView
         android:layout_width="25dp"
@@ -66,8 +66,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
         android:layout_toRightOf="@id/username"
         app:srcCompat="@android:drawable/sym_def_app_icon"
 
@@ -78,12 +78,36 @@
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/heart"
+        android:layout_below="@id/comment"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:text="TextView"
         android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_toRightOf="@id/postusername"
+        android:layout_marginRight="7dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heart"
+        android:id="@+id/postusername"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"
+        android:paddingEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/black"
+        />
+
+    <TextView
+        android:id="@+id/timeStamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/postusername"
+        android:text="TimeStamp"
+        android:textAllCaps="true" />
 
 
 </RelativeLayout>
