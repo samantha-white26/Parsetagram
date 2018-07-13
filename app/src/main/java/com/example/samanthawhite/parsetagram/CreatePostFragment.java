@@ -43,14 +43,18 @@ public class CreatePostFragment extends Fragment {
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
     File photoFile;
-    public final String TAG = "HomeActivity";
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    private onItemSelectedListener listener;
+
+
 
     @BindView(R.id.etDescription) EditText descriptionInput;
     @BindView(R.id.btnCreate) Button createButton;
     @BindView(R.id.takepic_btn) Button pictureButton;
     @BindView(R.id.picture) ImageView ivPreview;
+
 
 
 

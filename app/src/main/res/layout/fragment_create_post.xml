@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CreatePostFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,35 +16,36 @@
             android:layout_width="299dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/picture"
+            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="186dp"
-            android:ems="10"
             android:hint="Description"
             android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/btnCreate"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/etDescription"
             android:layout_centerHorizontal="true"
+            android:layout_below="@id/takepic_btn"
+            android:layout_marginTop="10dp"
             android:text="Create" />
 
         <Button
             android:id="@+id/takepic_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btnCreate"
             android:layout_centerHorizontal="true"
+            android:layout_below="@id/etDescription"
+            android:layout_marginTop="10dp"
             android:text="TakePicture" />
 
         <ImageView
             android:id="@+id/picture"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="148dp"
+            android:layout_marginTop="90dp"
             app:srcCompat="@android:color/black" />
 
     </RelativeLayout>

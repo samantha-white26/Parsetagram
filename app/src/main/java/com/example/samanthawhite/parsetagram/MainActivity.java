@@ -17,10 +17,14 @@ import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity implements LogoutFragment.OnLogoutSelectedListener {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         Toolbar toolbar = findViewById(R.id.nav_toolbar);
 
@@ -83,6 +87,12 @@ public class MainActivity extends AppCompatActivity implements LogoutFragment.On
         } else {
             Log.i("homeactivity", "not logged out");
         }
+    }
+
+
+    public void onMainCreateItemSelected() {
+
+
     }
 
 //    public void postDetails(Post post){
